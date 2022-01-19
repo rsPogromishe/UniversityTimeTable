@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
         let secondColor = UIColor(red: 53 / 255,
                                   green: 61 / 255,
                                   blue: 100 / 255,
-                                  alpha: 1)
+                                  alpha: 0.9)
         let endColor = UIColor(red: 53 / 255,
                                green: 61 / 255,
                                blue: 100 / 255,
