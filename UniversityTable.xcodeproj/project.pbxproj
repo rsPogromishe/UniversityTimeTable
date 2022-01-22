@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		580902792799E30D0017D629 /* DataProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580902782799E30D0017D629 /* DataProfile.swift */; };
+		5809027C2799EE120017D629 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5809027A2799EE120017D629 /* ProfileTableViewCell.swift */; };
+		5809027D2799EE120017D629 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5809027B2799EE120017D629 /* ProfileTableViewCell.xib */; };
+		5821C8BD27980D1F00839AED /* LessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5821C8BB27980D1F00839AED /* LessonTableViewCell.swift */; };
+		5821C8BE27980D1F00839AED /* LessonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5821C8BC27980D1F00839AED /* LessonTableViewCell.xib */; };
+		5821C8C327980FF900839AED /* BreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5821C8C127980FF900839AED /* BreakTableViewCell.swift */; };
+		5821C8C427980FF900839AED /* BreakTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5821C8C227980FF900839AED /* BreakTableViewCell.xib */; };
+		5821C8C727981BA400839AED /* MoneyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5821C8C527981BA400839AED /* MoneyTableViewCell.swift */; };
+		5821C8C827981BA400839AED /* MoneyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5821C8C627981BA400839AED /* MoneyTableViewCell.xib */; };
 		582EE6C3279760BF00973971 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582EE6C2279760BF00973971 /* ProfileViewController.swift */; };
 		582EE6C5279762A200973971 /* MoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582EE6C4279762A200973971 /* MoneyViewController.swift */; };
-		587E8FAB2793665000C6998A /* LessonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587E8FAA2793665000C6998A /* LessonTableCell.swift */; };
-		587E8FAD2793672500C6998A /* BreakTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587E8FAC2793672500C6998A /* BreakTableCell.swift */; };
 		587E8FAF2793688900C6998A /* DataLessons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587E8FAE2793688900C6998A /* DataLessons.swift */; };
 		58A22703278DE8E40018F582 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A22702278DE8E40018F582 /* AppDelegate.swift */; };
 		58A22705278DE8E40018F582 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A22704278DE8E40018F582 /* SceneDelegate.swift */; };
@@ -18,15 +25,22 @@
 		58A2270C278DE8E40018F582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58A2270B278DE8E40018F582 /* Assets.xcassets */; };
 		58A2270F278DE8E40018F582 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A2270D278DE8E40018F582 /* LaunchScreen.storyboard */; };
 		58A22717278DE9160018F582 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A22716278DE9160018F582 /* LoginViewController.swift */; };
-		58A22719278DEE0B0018F582 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A22718278DEE0B0018F582 /* DateFormatter.swift */; };
+		58A22719278DEE0B0018F582 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A22718278DEE0B0018F582 /* DateFormat.swift */; };
 		58A2271B278E16650018F582 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A2271A278E16650018F582 /* TimeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		580902782799E30D0017D629 /* DataProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProfile.swift; sourceTree = "<group>"; };
+		5809027A2799EE120017D629 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		5809027B2799EE120017D629 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		5821C8BB27980D1F00839AED /* LessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
+		5821C8BC27980D1F00839AED /* LessonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LessonTableViewCell.xib; sourceTree = "<group>"; };
+		5821C8C127980FF900839AED /* BreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTableViewCell.swift; sourceTree = "<group>"; };
+		5821C8C227980FF900839AED /* BreakTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreakTableViewCell.xib; sourceTree = "<group>"; };
+		5821C8C527981BA400839AED /* MoneyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTableViewCell.swift; sourceTree = "<group>"; };
+		5821C8C627981BA400839AED /* MoneyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoneyTableViewCell.xib; sourceTree = "<group>"; };
 		582EE6C2279760BF00973971 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		582EE6C4279762A200973971 /* MoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewController.swift; sourceTree = "<group>"; };
-		587E8FAA2793665000C6998A /* LessonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTableCell.swift; sourceTree = "<group>"; };
-		587E8FAC2793672500C6998A /* BreakTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTableCell.swift; sourceTree = "<group>"; };
 		587E8FAE2793688900C6998A /* DataLessons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLessons.swift; sourceTree = "<group>"; };
 		58A226FF278DE8E40018F582 /* UniversityTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversityTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A22702278DE8E40018F582 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +50,7 @@
 		58A2270E278DE8E40018F582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58A22710278DE8E40018F582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58A22716278DE9160018F582 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		58A22718278DEE0B0018F582 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		58A22718278DEE0B0018F582 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		58A2271A278E16650018F582 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,8 +68,9 @@
 		5821C8B82798042900839AED /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				58A22718278DEE0B0018F582 /* DateFormatter.swift */,
+				58A22718278DEE0B0018F582 /* DateFormat.swift */,
 				587E8FAE2793688900C6998A /* DataLessons.swift */,
+				580902782799E30D0017D629 /* DataProfile.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -63,8 +78,14 @@
 		5821C8B92798043D00839AED /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				587E8FAA2793665000C6998A /* LessonTableCell.swift */,
-				587E8FAC2793672500C6998A /* BreakTableCell.swift */,
+				5821C8BB27980D1F00839AED /* LessonTableViewCell.swift */,
+				5821C8BC27980D1F00839AED /* LessonTableViewCell.xib */,
+				5821C8C127980FF900839AED /* BreakTableViewCell.swift */,
+				5821C8C227980FF900839AED /* BreakTableViewCell.xib */,
+				5821C8C527981BA400839AED /* MoneyTableViewCell.swift */,
+				5821C8C627981BA400839AED /* MoneyTableViewCell.xib */,
+				5809027A2799EE120017D629 /* ProfileTableViewCell.swift */,
+				5809027B2799EE120017D629 /* ProfileTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -172,7 +193,11 @@
 			files = (
 				58A2270F278DE8E40018F582 /* LaunchScreen.storyboard in Resources */,
 				58A2270C278DE8E40018F582 /* Assets.xcassets in Resources */,
+				5821C8C827981BA400839AED /* MoneyTableViewCell.xib in Resources */,
+				5809027D2799EE120017D629 /* ProfileTableViewCell.xib in Resources */,
+				5821C8C427980FF900839AED /* BreakTableViewCell.xib in Resources */,
 				58A2270A278DE8E40018F582 /* Main.storyboard in Resources */,
+				5821C8BE27980D1F00839AED /* LessonTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,15 +208,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				587E8FAB2793665000C6998A /* LessonTableCell.swift in Sources */,
 				58A22717278DE9160018F582 /* LoginViewController.swift in Sources */,
-				587E8FAD2793672500C6998A /* BreakTableCell.swift in Sources */,
 				582EE6C5279762A200973971 /* MoneyViewController.swift in Sources */,
 				58A22703278DE8E40018F582 /* AppDelegate.swift in Sources */,
+				580902792799E30D0017D629 /* DataProfile.swift in Sources */,
+				5821C8C327980FF900839AED /* BreakTableViewCell.swift in Sources */,
 				58A22705278DE8E40018F582 /* SceneDelegate.swift in Sources */,
+				5821C8C727981BA400839AED /* MoneyTableViewCell.swift in Sources */,
 				587E8FAF2793688900C6998A /* DataLessons.swift in Sources */,
+				5821C8BD27980D1F00839AED /* LessonTableViewCell.swift in Sources */,
+				5809027C2799EE120017D629 /* ProfileTableViewCell.swift in Sources */,
 				582EE6C3279760BF00973971 /* ProfileViewController.swift in Sources */,
-				58A22719278DEE0B0018F582 /* DateFormatter.swift in Sources */,
+				58A22719278DEE0B0018F582 /* DateFormat.swift in Sources */,
 				58A2271B278E16650018F582 /* TimeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

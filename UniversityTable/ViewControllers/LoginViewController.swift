@@ -17,12 +17,18 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         gradientSetup()
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
         loginTextField.clearsOnBeginEditing = true
         passwordTextField.clearsOnBeginEditing = true
+        loadingView.isHidden = true
+        loadingIndicator.isHidden = true
     }
     
     func gradientSetup() {
@@ -47,7 +53,16 @@ class LoginViewController: UIViewController {
     }
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         if loginTextField.text == "login" && passwordTextField.text == "123" {
-            performSegue(withIdentifier: "login", sender: self)
+            UIView.animate(withDuration: 30.0, animations: {
+                    self.loadingView.isHidden = false
+                    self.loadingIndicator.isHidden = false
+                    self.loadingIndicator.startAnimating()
+                }, completion: { finished in
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
+                        self.loadingIndicator.stopAnimating()
+                        self.performSegue(withIdentifier: "login", sender: self) }
+                })
+            
         } else {
             let action = UIAlertController(title: "Ошибка",
                                            message: "Ваш логин: login Ваш пароль: 123",
