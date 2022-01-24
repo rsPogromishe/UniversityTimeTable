@@ -9,7 +9,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    let profileData = ProfileData.shared.dataProfile
+    let subTitleData = ProfileData.shared.dataSubTitle
+    let mainTitleData = ProfileData.shared.dataMainTitle
 
     @IBOutlet weak var profileTableView: UITableView!
     
@@ -21,6 +22,10 @@ class ProfileViewController: UIViewController {
         let profileCell = UINib(nibName: "ProfileTableViewCell", bundle: nil)
         self.profileTableView.register(profileCell, forCellReuseIdentifier: ProfileTableViewCell.identifier)
     }
+    @IBAction func exitButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "exit", sender: nil)
+    }
+    
 
 }
 extension ProfileViewController: UITableViewDelegate {
@@ -28,20 +33,13 @@ extension ProfileViewController: UITableViewDelegate {
 }
 extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return profileData.count
+        return subTitleData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell {
-//            let dictItem = Array(profileData)[indexPath.row]
-//            let key = dictItem.key
-//            let value = dictItem.value
-//            cell.mainTitle.text = value
-//            cell.subTitile.text = key
-            let key = Array(self.profileData.keys)[indexPath.row]
-            let value = Array(self.profileData.values)[indexPath.row]
-            cell.mainTitle.text = value
-            cell.subTitile.text = key
+            cell.subTitile.text = subTitleData[indexPath.row]
+            cell.mainTitle.text = mainTitleData[indexPath.row]
             return cell
         }
         return UITableViewCell()

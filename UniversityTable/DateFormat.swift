@@ -10,20 +10,18 @@ import UIKit
 
 class DateFormat {
     static func dateToday(day: Date) -> String {
-        let date = Date()
         let format = DateFormatter()
         format.dateFormat = "dd MMMM"
         format.locale = Locale(identifier: "ru_RU")
-        let day = format.string(from: date)
-        return day
+        let date = format.string(from: day)
+        return date
     }
     static func weekDay(day: Date) -> String {
-        let date = Date()
         let format = DateFormatter()
         format.dateFormat = "EEEE"
         format.locale = Locale(identifier: "ru_RU")
-        let day = format.string(from: date)
-        return day
+        let date = format.string(from: day)
+        return date
     }
     static func yesterday(day: String) -> String {
         let format = DateFormatter()
@@ -64,5 +62,20 @@ class DateFormat {
         let date = Calendar.current.date(byAdding: .day, value: 1, to: previousDateFormat!)
         let stringDate = format.string(from: date!)
         return stringDate
+    }
+    static func datesRange(from: Date, to: Date) -> [String] {
+        if from > to { return [String]() }
+        var tempDate = from
+        var array: [String] = []
+        while tempDate < to {
+            tempDate = Calendar.current.date(byAdding: .month, value: 1, to: tempDate)!
+            let format = DateFormatter()
+            format.locale = Locale(identifier: "ru_RU")
+            format.dateFormat = "LLLL"
+            let tempDateString = format.string(from: tempDate).capitalized
+            array.append(tempDateString)
+        }
+        
+        return array
     }
 }

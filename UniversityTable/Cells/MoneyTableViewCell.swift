@@ -14,6 +14,10 @@ class MoneyTableViewCell: UITableViewCell {
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var vectorLabel: UIImageView!
     
+    @IBOutlet weak var buttonBottomConst: NSLayoutConstraint!
+    @IBOutlet weak var paymentBottomConst: NSLayoutConstraint!
+    
+    var selectedRow = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,13 +27,14 @@ class MoneyTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     @IBAction func vectorButtonTapped(_ sender: UIButton) {
-            if vectorLabel.transform == CGAffineTransform(rotationAngle: CGFloat.zero) {
+            if selectedRow {
                 vectorLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-                self.frame.size.height = 121
+                //self.buttonBottomConst.priority = UILayoutPriority(rawValue: 998)
+                
             } else {
                 vectorLabel.transform = CGAffineTransform(rotationAngle: CGFloat.zero)
-                self.frame.size.height = 48
+                //self.buttonBottomConst.priority = UILayoutPriority(rawValue: 1000)
             }
-        
+            
     }
 }

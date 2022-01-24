@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -8,42 +8,41 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BreakTableViewCell" rowHeight="53" id="BOK-b2-yb2" customClass="BreakTableViewCell" customModule="UniversityTable" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BreakTableViewCell" rowHeight="30" id="kBI-Mk-vDD" customClass="BreakTableViewCell" customModule="UniversityTable" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BOK-b2-yb2" id="y17-Md-tqm" customClass="BreakTableViewCell" customModule="UniversityTable" customModuleProvider="target">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kBI-Mk-vDD" id="o8N-8w-FMj">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aP-pa-hTl">
-                        <rect key="frame" x="16" y="17" width="38.5" height="19.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ija-pJ-sUe">
+                        <rect key="frame" x="16" y="17" width="38.5" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Перерыв" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sST-vh-Bav">
-                        <rect key="frame" x="85.5" y="18" width="61" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Перерыв" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBe-1i-1P5">
+                        <rect key="frame" x="84.5" y="18.5" width="61" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="sST-vh-Bav" firstAttribute="centerY" secondItem="y17-Md-tqm" secondAttribute="centerY" id="3BT-Dm-f57"/>
-                    <constraint firstItem="sST-vh-Bav" firstAttribute="leading" secondItem="0aP-pa-hTl" secondAttribute="trailing" constant="31" id="ZK5-fz-jfN"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sST-vh-Bav" secondAttribute="trailing" constant="20" symbolic="YES" id="lNe-0I-oFM"/>
-                    <constraint firstItem="0aP-pa-hTl" firstAttribute="centerY" secondItem="y17-Md-tqm" secondAttribute="centerY" id="pAK-X3-Wrh"/>
-                    <constraint firstItem="0aP-pa-hTl" firstAttribute="leading" secondItem="y17-Md-tqm" secondAttribute="leading" constant="16" id="rhD-bz-d1r"/>
+                    <constraint firstItem="TBe-1i-1P5" firstAttribute="centerY" secondItem="ija-pJ-sUe" secondAttribute="centerY" id="2A0-Vu-Tl9"/>
+                    <constraint firstItem="TBe-1i-1P5" firstAttribute="leading" secondItem="ija-pJ-sUe" secondAttribute="trailing" constant="30" id="PK1-rB-cYI"/>
+                    <constraint firstAttribute="bottom" secondItem="ija-pJ-sUe" secondAttribute="bottom" constant="16" id="Pkc-76-RUU"/>
+                    <constraint firstItem="ija-pJ-sUe" firstAttribute="top" secondItem="o8N-8w-FMj" secondAttribute="top" constant="17" id="lp7-PH-fHf"/>
+                    <constraint firstItem="ija-pJ-sUe" firstAttribute="leading" secondItem="o8N-8w-FMj" secondAttribute="leading" constant="16" id="tET-R9-LFW"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
-                <outlet property="breakStartLabel" destination="0aP-pa-hTl" id="rtb-Qx-QBa"/>
-                <outlet property="nameBreakLabel" destination="sST-vh-Bav" id="02k-00-tNb"/>
+                <outlet property="breakStartLabel" destination="ija-pJ-sUe" id="2pe-HB-eFk"/>
+                <outlet property="nameBreakLabel" destination="TBe-1i-1P5" id="6e7-kb-qCK"/>
             </connections>
-            <point key="canvasLocation" x="138" y="95"/>
+            <point key="canvasLocation" x="80" y="60.719640179910051"/>
         </tableViewCell>
     </objects>
 </document>

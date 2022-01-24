@@ -19,6 +19,8 @@
 		582EE6C3279760BF00973971 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582EE6C2279760BF00973971 /* ProfileViewController.swift */; };
 		582EE6C5279762A200973971 /* MoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582EE6C4279762A200973971 /* MoneyViewController.swift */; };
 		587E8FAF2793688900C6998A /* DataLessons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587E8FAE2793688900C6998A /* DataLessons.swift */; };
+		58A082DA279F3619009A897E /* TimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A082D9279F3619009A897E /* TimeTableView.swift */; };
+		58A082DC279F3624009A897E /* TimeTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58A082DB279F3624009A897E /* TimeTableView.xib */; };
 		58A22703278DE8E40018F582 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A22702278DE8E40018F582 /* AppDelegate.swift */; };
 		58A22705278DE8E40018F582 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A22704278DE8E40018F582 /* SceneDelegate.swift */; };
 		58A2270A278DE8E40018F582 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A22708278DE8E40018F582 /* Main.storyboard */; };
@@ -27,6 +29,7 @@
 		58A22717278DE9160018F582 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A22716278DE9160018F582 /* LoginViewController.swift */; };
 		58A22719278DEE0B0018F582 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A22718278DEE0B0018F582 /* DateFormat.swift */; };
 		58A2271B278E16650018F582 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A2271A278E16650018F582 /* TimeTableViewController.swift */; };
+		58F5953C279F5064005F8268 /* DataMoneyDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5953B279F5064005F8268 /* DataMoneyDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,8 @@
 		582EE6C2279760BF00973971 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		582EE6C4279762A200973971 /* MoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewController.swift; sourceTree = "<group>"; };
 		587E8FAE2793688900C6998A /* DataLessons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLessons.swift; sourceTree = "<group>"; };
+		58A082D9279F3619009A897E /* TimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableView.swift; sourceTree = "<group>"; };
+		58A082DB279F3624009A897E /* TimeTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeTableView.xib; sourceTree = "<group>"; };
 		58A226FF278DE8E40018F582 /* UniversityTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversityTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A22702278DE8E40018F582 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58A22704278DE8E40018F582 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +57,7 @@
 		58A22716278DE9160018F582 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		58A22718278DEE0B0018F582 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		58A2271A278E16650018F582 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
+		58F5953B279F5064005F8268 /* DataMoneyDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMoneyDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,7 @@
 				58A22718278DEE0B0018F582 /* DateFormat.swift */,
 				587E8FAE2793688900C6998A /* DataLessons.swift */,
 				580902782799E30D0017D629 /* DataProfile.swift */,
+				58F5953B279F5064005F8268 /* DataMoneyDate.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -86,6 +93,8 @@
 				5821C8C627981BA400839AED /* MoneyTableViewCell.xib */,
 				5809027A2799EE120017D629 /* ProfileTableViewCell.swift */,
 				5809027B2799EE120017D629 /* ProfileTableViewCell.xib */,
+				58A082D9279F3619009A897E /* TimeTableView.swift */,
+				58A082DB279F3624009A897E /* TimeTableView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -195,6 +204,7 @@
 				58A2270C278DE8E40018F582 /* Assets.xcassets in Resources */,
 				5821C8C827981BA400839AED /* MoneyTableViewCell.xib in Resources */,
 				5809027D2799EE120017D629 /* ProfileTableViewCell.xib in Resources */,
+				58A082DC279F3624009A897E /* TimeTableView.xib in Resources */,
 				5821C8C427980FF900839AED /* BreakTableViewCell.xib in Resources */,
 				58A2270A278DE8E40018F582 /* Main.storyboard in Resources */,
 				5821C8BE27980D1F00839AED /* LessonTableViewCell.xib in Resources */,
@@ -212,8 +222,10 @@
 				582EE6C5279762A200973971 /* MoneyViewController.swift in Sources */,
 				58A22703278DE8E40018F582 /* AppDelegate.swift in Sources */,
 				580902792799E30D0017D629 /* DataProfile.swift in Sources */,
+				58F5953C279F5064005F8268 /* DataMoneyDate.swift in Sources */,
 				5821C8C327980FF900839AED /* BreakTableViewCell.swift in Sources */,
 				58A22705278DE8E40018F582 /* SceneDelegate.swift in Sources */,
+				58A082DA279F3619009A897E /* TimeTableView.swift in Sources */,
 				5821C8C727981BA400839AED /* MoneyTableViewCell.swift in Sources */,
 				587E8FAF2793688900C6998A /* DataLessons.swift in Sources */,
 				5821C8BD27980D1F00839AED /* LessonTableViewCell.swift in Sources */,
