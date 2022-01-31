@@ -14,6 +14,8 @@ class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var subTitile: UILabel!
     @IBOutlet weak var mainTitle: UILabel!
     
+    #warning("Не используемые методы можно удалить, зря место занимают")
+    #warning("Selection в данной задаче у ячейки не нужен")
     override func awakeFromNib() {
         super.awakeFromNib()
         

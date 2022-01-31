@@ -7,6 +7,8 @@
 
 import UIKit
 
+#warning("Выставляя ширину для UILabel и его родительской UIView(в данном случае UIStackView) приведёт к тому, что если лейблу потребуется больше места, то он начнёт обрезаться по установленной ширине, а ширина экрана всегда разная")
+#warning("В UIStackView выставляй однозначную высоту/ширину у сабвью, иначе будет непредвиденная ситуация")
 class LessonTableViewCell: UITableViewCell {
     
     static let identifier = "LessonTableViewCell"
@@ -20,6 +22,7 @@ class LessonTableViewCell: UITableViewCell {
     @IBOutlet weak var typeLessonLabel: UILabel!
     
 
+    #warning("Не используемые методы можно удалить, зря место занимают")
     override func awakeFromNib() {
         super.awakeFromNib()
     }

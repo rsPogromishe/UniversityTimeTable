@@ -19,6 +19,7 @@ class MoneyTableViewCell: UITableViewCell {
     
     var selectedRow = false
     
+    #warning("Не используемые методы можно удалить, зря место занимают")
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -26,6 +27,7 @@ class MoneyTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    #warning("IBAction убрать и передаваемый параметр тоже не нужен")
     @IBAction func vectorButtonTapped(_ sender: UIButton) {
             if selectedRow {
                 vectorLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)

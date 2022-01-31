@@ -7,6 +7,8 @@
 
 import UIKit
 
+#warning("не забывай про safeArea, UIView наехала на статус бар айфона с челкой")
+#warning("Выводи UIView c логикой, чем показ обычный просмотр в отдельный класс")
 class TimeTableViewController: UIViewController, UIScrollViewDelegate {
     
     lazy var dayToday = Date()
@@ -21,6 +23,7 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        #warning("Настройку одной вьюхи компонуй в один блок кода")
         pagingScroll.delegate = self
         dateLabel.text = DateFormat.dateToday(day: dayToday)
         weekDateLabel.text = DateFormat.weekDay(day: dayToday)
@@ -40,6 +43,7 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate {
             pagingScroll.addSubview(tableview)
         }
     }
+    #warning("Не забывай ставить переносы между методами, иначе сложно читается")
     @IBAction func shareButtonPressed(_ sender: Any) {
         let sharedData = "Пары на \(self.dateLabel.text!)(\(self.weekDateLabel.text!))"
         let activityVC = UIActivityViewController(activityItems: [sharedData], applicationActivities: nil)
@@ -52,7 +56,7 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func rightButtonPressed(_ sender: Any) {
         dateLabel.text = DateFormat.tomorrow(day: dateLabel.text!)
         weekDateLabel.text = DateFormat.tomorrowWeek(day: weekDateLabel.text!)
-        pagingScroll.
+//        pagingScroll.
     }
     @IBAction func calendarButtonPressed(_ sender: Any) {
         datePicker.locale = Locale(identifier: "ru_RU")

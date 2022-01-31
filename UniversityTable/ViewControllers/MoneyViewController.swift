@@ -24,6 +24,7 @@ class MoneyViewController: UIViewController {
         self.moneyTableView.register(moneyCell, forCellReuseIdentifier: MoneyTableViewCell.identifier)
     }
 }
+#warning("Если ты не используешь UITableViewDelegate, выводить его в отдельное расширение не нужно, он в принципе не нужен здесь")
 extension MoneyViewController: UITableViewDelegate {
     
 }
@@ -43,6 +44,7 @@ extension MoneyViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MoneyTableViewCell.identifier, for: indexPath) as? MoneyTableViewCell {
+            #warning("Когда ячеек станет много и у них у всех будет по 10-20 полей, каждый придётся здесь описывать и увеличивать размер и так, вероятно, большого контроллера. Описывай метод конфигурации ячейки в классе ячейки")
             cell.monthLabel.text = dataMoney[indexPath.row]
             cell.selectedRow = selectedRows.contains(indexPath)
             cell.vectorButtonTapped(UIButton())
@@ -74,6 +76,7 @@ extension MoneyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = UITableViewHeaderFooterView()
         var config = UIBackgroundConfiguration.clear()
+        #warning("Тоже самое, Swift даёт тебе возможность описывать расширения классов, можно описать метод инициализации цвета в этом расширении, чтобы добавлять туда целое число, а в самом методе пусть происходит это деление на 255, писать станет быстрее и приятнее. Проще же один раз описать и везде потом это использовать")
         config.backgroundColor = UIColor(red: 236 / 255, green: 236 / 255, blue: 236 / 255, alpha: 1)
         header.backgroundConfiguration = config
         header.backgroundView?.backgroundColor = UIColor(red: 236 / 255, green: 236 / 255, blue: 236 / 255, alpha: 1)
