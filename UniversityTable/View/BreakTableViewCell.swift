@@ -14,13 +14,9 @@ class BreakTableViewCell: UITableViewCell {
     @IBOutlet weak var breakStartLabel: UILabel!
     @IBOutlet weak var nameBreakLabel: UILabel!
     
-    #warning("Не используемые методы можно удалить, зря место занимают")
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    //#warning("Не используемые методы можно удалить, зря место занимают")
+    func configure(data: Break) {
+        breakStartLabel.text = data.timeStart
+        nameBreakLabel.text = data.nameLesson
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
 }

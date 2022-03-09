@@ -7,34 +7,52 @@
 
 import UIKit
 
-#warning("не забывай про safeArea, UIView наехала на статус бар айфона с челкой")
-#warning("Выводи UIView c логикой, чем показ обычный просмотр в отдельный класс")
-class TimeTableViewController: UIViewController, UIScrollViewDelegate {
+//#warning("не забывай про safeArea, UIView наехала на статус бар айфона с челкой")
+//#warning("Выводи UIView c логикой, чем показ обычный просмотр в отдельный класс")
+class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarViewDelegate {
     
     lazy var dayToday = Date()
     
     let dataLessons = data
     
+    let calendarDates = DateFormat().thisWeek() + DateFormat().nextWeek()
+    let calendar = Date().getWeekDates().thisWeek + Date().getWeekDates().nextWeek
+    
+    var currentDate: String = ""
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weekDateLabel: UILabel!
     
     @IBOutlet weak var pagingScroll: UIScrollView!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var calendarView: CalendarView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        #warning("Настройку одной вьюхи компонуй в один блок кода")
-        pagingScroll.delegate = self
-        dateLabel.text = DateFormat.dateToday(day: dayToday)
-        weekDateLabel.text = DateFormat.weekDay(day: dayToday)
-        datePicker.isHidden = true
+        //#warning("Настройку одной вьюхи компонуй в один блок кода")
         
+        dateLabel.text = DateFormat.dateToday(day: dayToday, formatter: "dd MMMM")
+        weekDateLabel.text = DateFormat.dateToday(day: dayToday, formatter: "EEEE")
+        
+        self.view.bringSubviewToFront(calendarView)
+        calendarView.isHidden = true
+        calendarView.configure(model: DateFormat())
+        
+        pagingScroll.delegate = self
         pagingScroll.isPagingEnabled = true
         pagingScroll.alwaysBounceVertical = false
-        let numberOfPages: Int = 3
+        
+        calendarView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let numberOfPages: Int = calendar.count
         let heightScroll = UIScreen.main.bounds.height - (UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0) - (self.tabBarController?.tabBar.frame.height ?? 0) - 67
         let widthScroll = UIScreen.main.bounds.width
-        self.pagingScroll.contentSize = CGSize(width: widthScroll * 4,
+        self.pagingScroll.contentSize = CGSize(width: widthScroll * 14,
                                                height: 0)
         
         for i in 0...numberOfPages {
@@ -42,38 +60,98 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate {
             let tableview = TimeTableView.init(frame: frame)
             pagingScroll.addSubview(tableview)
         }
+        
+        contentOffSet(index: indexOfDate(date: dayToday.toDate(format: "dd MMMM")))
     }
-    #warning("Не забывай ставить переносы между методами, иначе сложно читается")
+    //#warning("Не забывай ставить переносы между методами, иначе сложно читается")
+    
     @IBAction func shareButtonPressed(_ sender: Any) {
-        let sharedData = "Пары на \(self.dateLabel.text!)(\(self.weekDateLabel.text!))"
+        var array: [String] = []
+        for i in dataLessons {
+            let name = i.nameLesson
+            let time = i.timeStart
+            array.append(time)
+            array.append(name)
+        }
+        let sharedData = "Пары на \(self.dateLabel.text ?? ""),\(self.weekDateLabel.text ?? ""): \(array)"
         let activityVC = UIActivityViewController(activityItems: [sharedData], applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
     }
+    
     @IBAction func leftButtonPressed(_ sender: Any) {
-        dateLabel.text = DateFormat.yesterday(day: dateLabel.text!)
-        weekDateLabel.text = DateFormat.yesterdayWeek(day: weekDateLabel.text!)
+        var array: [String] = []
+        for i in calendar {
+            let a = i.toDate(format: "dd MMMM")
+            array.append(a)
+        }
+        if array.contains(DateFormat.yesterday(day: dateLabel.text ?? "")){
+            dateLabel.text = DateFormat.yesterday(day: dateLabel.text ?? "")
+            weekDateLabel.text = DateFormat.yesterdayWeek(day: weekDateLabel.text ?? "")
+            contentOffSet(index: indexOfDate(date: dateLabel.text ?? ""))
+        } else {
+            dateLabel.text = dateLabel.text
+            weekDateLabel.text = weekDateLabel.text
+            contentOffSet(index: indexOfDate(date: dateLabel.text ?? ""))
+        }
+        
     }
+    
     @IBAction func rightButtonPressed(_ sender: Any) {
-        dateLabel.text = DateFormat.tomorrow(day: dateLabel.text!)
-        weekDateLabel.text = DateFormat.tomorrowWeek(day: weekDateLabel.text!)
-//        pagingScroll.
+        var array: [String] = []
+        for i in calendar {
+            let a = i.toDate(format: "dd MMMM")
+            array.append(a)
+        }
+        if array.contains(DateFormat.tomorrow(day: dateLabel.text ?? "")){
+            dateLabel.text = DateFormat.tomorrow(day: dateLabel.text ?? "")
+            weekDateLabel.text = DateFormat.tomorrow(day: dateLabel.text ?? "")
+            contentOffSet(index: indexOfDate(date: dateLabel.text ?? ""))
+        } else {
+            dateLabel.text = dateLabel.text
+            weekDateLabel.text = weekDateLabel.text
+            contentOffSet(index: indexOfDate(date: dateLabel.text ?? ""))
+        }
+        
     }
+    
     @IBAction func calendarButtonPressed(_ sender: Any) {
-        datePicker.locale = Locale(identifier: "ru_RU")
-        datePicker.isHidden = false
-        datePicker.datePickerMode = .date
-        datePicker.date = dayToday
-    }
-    @IBAction func changeDate(_ sender: UIDatePicker) {
-        let format = DateFormatter()
-        format.dateFormat = "dd MMMM"
-        format.locale = Locale(identifier: "ru_RU")
-        dateLabel.text = format.string(from: sender.date)
-        let formater = DateFormatter()
-        formater.dateFormat = "EEEE"
-        formater.locale = Locale(identifier: "ru_RU")
-        weekDateLabel.text = formater.string(from: sender.date)
+        if calendarView.isHidden == true {
+            calendarView.isHidden = false
+        } else {
+            calendarView.isHidden = true
+        }
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let width = UIScreen.main.bounds.width
+        let index = Int(scrollView.contentOffset.x / width)
+        if calendar.count > index {
+            if !((calendar[index]).toDate(format: "dd MMMM")).elementsEqual(currentDate) {
+                dateLabel.text = (calendar[index]).toDate(format: "dd MMMM")
+                weekDateLabel.text = (calendar[index]).toDate(format: "EEEE")
+            }
+        }
+    }
     
+    func changeDateDelegate(tag: Int) {
+        dateLabel.text = (calendar[tag]).toDate(format: "dd MMMM")
+        weekDateLabel.text = (calendar[tag]).toDate(format: "EEEE")
+        calendarView.isHidden = true
+        contentOffSet(index: indexOfDate(date: (calendar[tag]).toDate(format: "dd MMMM")))
+    }
+    
+    func contentOffSet(index: Int) {
+        let width = UIScreen.main.bounds.width
+        pagingScroll.contentOffset = CGPoint(x: width * CGFloat(index), y: 0)
+    }
+    
+    func indexOfDate(date: String) -> Int {
+        var array: [String] = []
+        for i in calendar {
+            let a = i.toDate(format: "dd MMMM")
+            array.append(a)
+        }
+        guard let index = array.firstIndex(of: date) else { return 0 }
+        return index
+    }
 }

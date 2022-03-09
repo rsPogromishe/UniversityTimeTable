@@ -19,16 +19,15 @@ class MoneyViewController: UIViewController {
         self.registerCell()
         moneyTableView.sectionHeaderTopPadding = 0
     }
+    
     private func registerCell() {
         let moneyCell = UINib(nibName: "MoneyTableViewCell", bundle: nil)
         self.moneyTableView.register(moneyCell, forCellReuseIdentifier: MoneyTableViewCell.identifier)
     }
 }
-#warning("Если ты не используешь UITableViewDelegate, выводить его в отдельное расширение не нужно, он в принципе не нужен здесь")
-extension MoneyViewController: UITableViewDelegate {
-    
-}
-extension MoneyViewController: UITableViewDataSource {
+//#warning("Если ты не используешь UITableViewDelegate, выводить его в отдельное расширение не нужно, он в принципе не нужен здесь")
+
+extension MoneyViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return years.count
@@ -44,10 +43,10 @@ extension MoneyViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MoneyTableViewCell.identifier, for: indexPath) as? MoneyTableViewCell {
-            #warning("Когда ячеек станет много и у них у всех будет по 10-20 полей, каждый придётся здесь описывать и увеличивать размер и так, вероятно, большого контроллера. Описывай метод конфигурации ячейки в классе ячейки")
-            cell.monthLabel.text = dataMoney[indexPath.row]
+            //#warning("Когда ячеек станет много и у них у всех будет по 10-20 полей, каждый придётся здесь описывать и увеличивать размер и так, вероятно, большого контроллера. Описывай метод конфигурации ячейки в классе ячейки")
+            cell.configure(month: dataMoney[indexPath.row])
             cell.selectedRow = selectedRows.contains(indexPath)
-            cell.vectorButtonTapped(UIButton())
+            cell.vectorButtonTapped()
             return cell
         }
         return UITableViewCell()
@@ -67,27 +66,38 @@ extension MoneyViewController: UITableViewDataSource {
         }
         tableView.reloadRows(at: [indexPath], with: .none)
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if selectedRows.contains(indexPath) {
             return 121
         }
         return 48
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = UITableViewHeaderFooterView()
         var config = UIBackgroundConfiguration.clear()
-        #warning("Тоже самое, Swift даёт тебе возможность описывать расширения классов, можно описать метод инициализации цвета в этом расширении, чтобы добавлять туда целое число, а в самом методе пусть происходит это деление на 255, писать станет быстрее и приятнее. Проще же один раз описать и везде потом это использовать")
-        config.backgroundColor = UIColor(red: 236 / 255, green: 236 / 255, blue: 236 / 255, alpha: 1)
+        //#warning("Тоже самое, Swift даёт тебе возможность описывать расширения классов, можно описать метод инициализации цвета в этом расширении, чтобы добавлять туда целое число, а в самом методе пусть происходит это деление на 255, писать станет быстрее и приятнее. Проще же один раз описать и везде потом это использовать")
+        config.backgroundColor = UIColor.setColor(red: 236, green: 236, blue: 236, alpha: 1)
         header.backgroundConfiguration = config
-        header.backgroundView?.backgroundColor = UIColor(red: 236 / 255, green: 236 / 255, blue: 236 / 255, alpha: 1)
+        header.backgroundView?.backgroundColor = UIColor.setColor(red: 236, green: 236, blue: 236, alpha: 1)
         header.textLabel?.text = years[section]
-        header.backgroundConfiguration?.backgroundColor = UIColor(red: 236 / 255, green: 236 / 255, blue: 236 / 255, alpha: 1)
+        header.backgroundConfiguration?.backgroundColor = UIColor.setColor(red: 236, green: 236, blue: 236, alpha: 1)
         return header
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return .leastNormalMagnitude
+    }
+}
+
+public extension UIColor {
+    static func setColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
+        let color = UIColor(red: red / 255, green: green / 255, blue: blue / 255, alpha: alpha)
+        return color
     }
 }

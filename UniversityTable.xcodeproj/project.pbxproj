@@ -18,6 +18,10 @@
 		5821C8C827981BA400839AED /* MoneyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5821C8C627981BA400839AED /* MoneyTableViewCell.xib */; };
 		582EE6C3279760BF00973971 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582EE6C2279760BF00973971 /* ProfileViewController.swift */; };
 		582EE6C5279762A200973971 /* MoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582EE6C4279762A200973971 /* MoneyViewController.swift */; };
+		586919FA27C1518C00B26C31 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586919F927C1518C00B26C31 /* LoadingView.swift */; };
+		586919FC27C1519500B26C31 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586919FB27C1519500B26C31 /* LoadingView.xib */; };
+		586B487F27C6A66500E602BB /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B487E27C6A66500E602BB /* CalendarView.swift */; };
+		586B488527C6A7B900E602BB /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586B488427C6A7B900E602BB /* CalendarView.xib */; };
 		587E8FAF2793688900C6998A /* DataLessons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587E8FAE2793688900C6998A /* DataLessons.swift */; };
 		58A082DA279F3619009A897E /* TimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A082D9279F3619009A897E /* TimeTableView.swift */; };
 		58A082DC279F3624009A897E /* TimeTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58A082DB279F3624009A897E /* TimeTableView.xib */; };
@@ -44,6 +48,10 @@
 		5821C8C627981BA400839AED /* MoneyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoneyTableViewCell.xib; sourceTree = "<group>"; };
 		582EE6C2279760BF00973971 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		582EE6C4279762A200973971 /* MoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewController.swift; sourceTree = "<group>"; };
+		586919F927C1518C00B26C31 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		586919FB27C1519500B26C31 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		586B487E27C6A66500E602BB /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		586B488427C6A7B900E602BB /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		587E8FAE2793688900C6998A /* DataLessons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLessons.swift; sourceTree = "<group>"; };
 		58A082D9279F3619009A897E /* TimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableView.swift; sourceTree = "<group>"; };
 		58A082DB279F3624009A897E /* TimeTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeTableView.xib; sourceTree = "<group>"; };
@@ -82,7 +90,7 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
-		5821C8B92798043D00839AED /* Cells */ = {
+		5821C8B92798043D00839AED /* View */ = {
 			isa = PBXGroup;
 			children = (
 				5821C8BB27980D1F00839AED /* LessonTableViewCell.swift */,
@@ -95,8 +103,12 @@
 				5809027B2799EE120017D629 /* ProfileTableViewCell.xib */,
 				58A082D9279F3619009A897E /* TimeTableView.swift */,
 				58A082DB279F3624009A897E /* TimeTableView.xib */,
+				586919F927C1518C00B26C31 /* LoadingView.swift */,
+				586919FB27C1519500B26C31 /* LoadingView.xib */,
+				586B487E27C6A66500E602BB /* CalendarView.swift */,
+				586B488427C6A7B900E602BB /* CalendarView.xib */,
 			);
-			path = Cells;
+			path = View;
 			sourceTree = "<group>";
 		};
 		5821C8BA2798045C00839AED /* ViewControllers */ = {
@@ -132,7 +144,7 @@
 				58A22702278DE8E40018F582 /* AppDelegate.swift */,
 				58A22704278DE8E40018F582 /* SceneDelegate.swift */,
 				5821C8B82798042900839AED /* Data */,
-				5821C8B92798043D00839AED /* Cells */,
+				5821C8B92798043D00839AED /* View */,
 				5821C8BA2798045C00839AED /* ViewControllers */,
 				58A22708278DE8E40018F582 /* Main.storyboard */,
 				58A2270B278DE8E40018F582 /* Assets.xcassets */,
@@ -202,10 +214,12 @@
 			files = (
 				58A2270F278DE8E40018F582 /* LaunchScreen.storyboard in Resources */,
 				58A2270C278DE8E40018F582 /* Assets.xcassets in Resources */,
+				586B488527C6A7B900E602BB /* CalendarView.xib in Resources */,
 				5821C8C827981BA400839AED /* MoneyTableViewCell.xib in Resources */,
 				5809027D2799EE120017D629 /* ProfileTableViewCell.xib in Resources */,
 				58A082DC279F3624009A897E /* TimeTableView.xib in Resources */,
 				5821C8C427980FF900839AED /* BreakTableViewCell.xib in Resources */,
+				586919FC27C1519500B26C31 /* LoadingView.xib in Resources */,
 				58A2270A278DE8E40018F582 /* Main.storyboard in Resources */,
 				5821C8BE27980D1F00839AED /* LessonTableViewCell.xib in Resources */,
 			);
@@ -221,8 +235,10 @@
 				58A22717278DE9160018F582 /* LoginViewController.swift in Sources */,
 				582EE6C5279762A200973971 /* MoneyViewController.swift in Sources */,
 				58A22703278DE8E40018F582 /* AppDelegate.swift in Sources */,
+				586B487F27C6A66500E602BB /* CalendarView.swift in Sources */,
 				580902792799E30D0017D629 /* DataProfile.swift in Sources */,
 				58F5953C279F5064005F8268 /* DataMoneyDate.swift in Sources */,
+				586919FA27C1518C00B26C31 /* LoadingView.swift in Sources */,
 				5821C8C327980FF900839AED /* BreakTableViewCell.swift in Sources */,
 				58A22705278DE8E40018F582 /* SceneDelegate.swift in Sources */,
 				58A082DA279F3619009A897E /* TimeTableView.swift in Sources */,
