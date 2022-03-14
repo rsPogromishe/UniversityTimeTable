@@ -7,8 +7,6 @@
 
 import UIKit
 
-//#warning("не забывай про safeArea, UIView наехала на статус бар айфона с челкой")
-//#warning("Выводи UIView c логикой, чем показ обычный просмотр в отдельный класс")
 class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarViewDelegate {
     
     lazy var dayToday = Date()
@@ -30,8 +28,6 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //#warning("Настройку одной вьюхи компонуй в один блок кода")
-        
         dateLabel.text = DateFormat.dateToday(day: dayToday, formatter: "dd MMMM")
         weekDateLabel.text = DateFormat.dateToday(day: dayToday, formatter: "EEEE")
         
@@ -63,7 +59,6 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarV
         
         contentOffSet(index: indexOfDate(date: dayToday.toDate(format: "dd MMMM")))
     }
-    //#warning("Не забывай ставить переносы между методами, иначе сложно читается")
     
     @IBAction func shareButtonPressed(_ sender: Any) {
         var array: [String] = []

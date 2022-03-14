@@ -25,7 +25,6 @@ class MoneyViewController: UIViewController {
         self.moneyTableView.register(moneyCell, forCellReuseIdentifier: MoneyTableViewCell.identifier)
     }
 }
-//#warning("Если ты не используешь UITableViewDelegate, выводить его в отдельное расширение не нужно, он в принципе не нужен здесь")
 
 extension MoneyViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -43,7 +42,6 @@ extension MoneyViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MoneyTableViewCell.identifier, for: indexPath) as? MoneyTableViewCell {
-            //#warning("Когда ячеек станет много и у них у всех будет по 10-20 полей, каждый придётся здесь описывать и увеличивать размер и так, вероятно, большого контроллера. Описывай метод конфигурации ячейки в классе ячейки")
             cell.configure(month: dataMoney[indexPath.row])
             cell.selectedRow = selectedRows.contains(indexPath)
             cell.vectorButtonTapped()
@@ -77,7 +75,6 @@ extension MoneyViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = UITableViewHeaderFooterView()
         var config = UIBackgroundConfiguration.clear()
-        //#warning("Тоже самое, Swift даёт тебе возможность описывать расширения классов, можно описать метод инициализации цвета в этом расширении, чтобы добавлять туда целое число, а в самом методе пусть происходит это деление на 255, писать станет быстрее и приятнее. Проще же один раз описать и везде потом это использовать")
         config.backgroundColor = UIColor.setColor(red: 236, green: 236, blue: 236, alpha: 1)
         header.backgroundConfiguration = config
         header.backgroundView?.backgroundColor = UIColor.setColor(red: 236, green: 236, blue: 236, alpha: 1)
@@ -95,6 +92,7 @@ extension MoneyViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+#warning("()()")
 public extension UIColor {
     static func setColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
         let color = UIColor(red: red / 255, green: green / 255, blue: blue / 255, alpha: alpha)
