@@ -8,6 +8,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
     let data = ProfileData.shared.arrayOfProfileData
 
     @IBOutlet weak var profileTableView: UITableView!
@@ -34,9 +35,9 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell {
-            #warning("if let же выше используешь, можно и здесь и его так же")
+            //#warning("if let же выше используешь, можно и здесь и его так же")
 //            data[safe: indexPath.row] так используется, почитай про subscripts
-            let item = Array(data)[safe: indexPath.row]
+            let item = data[safe: indexPath.row]
             cell.configure(key: item?.key ?? "", value: item?.value ?? "")
             return cell
         }

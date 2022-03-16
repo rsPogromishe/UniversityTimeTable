@@ -23,6 +23,7 @@
 		586B487F27C6A66500E602BB /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B487E27C6A66500E602BB /* CalendarView.swift */; };
 		586B488527C6A7B900E602BB /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586B488427C6A7B900E602BB /* CalendarView.xib */; };
 		587E8FAF2793688900C6998A /* DataLessons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587E8FAE2793688900C6998A /* DataLessons.swift */; };
+		5884E8B627E2509100933731 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5884E8B527E2509100933731 /* Extensions.swift */; };
 		58A082DA279F3619009A897E /* TimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A082D9279F3619009A897E /* TimeTableView.swift */; };
 		58A082DC279F3624009A897E /* TimeTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58A082DB279F3624009A897E /* TimeTableView.xib */; };
 		58A22703278DE8E40018F582 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A22702278DE8E40018F582 /* AppDelegate.swift */; };
@@ -53,6 +54,7 @@
 		586B487E27C6A66500E602BB /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		586B488427C6A7B900E602BB /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		587E8FAE2793688900C6998A /* DataLessons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLessons.swift; sourceTree = "<group>"; };
+		5884E8B527E2509100933731 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		58A082D9279F3619009A897E /* TimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableView.swift; sourceTree = "<group>"; };
 		58A082DB279F3624009A897E /* TimeTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeTableView.xib; sourceTree = "<group>"; };
 		58A226FF278DE8E40018F582 /* UniversityTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversityTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,15 +81,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5821C8B82798042900839AED /* Data */ = {
+		5821C8B82798042900839AED /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5884E8B427E2507F00933731 /* Extensions */,
 				58A22718278DEE0B0018F582 /* DateFormat.swift */,
 				587E8FAE2793688900C6998A /* DataLessons.swift */,
 				580902782799E30D0017D629 /* DataProfile.swift */,
 				58F5953B279F5064005F8268 /* DataMoneyDate.swift */,
 			);
-			name = Data;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		5821C8B92798043D00839AED /* View */ = {
@@ -122,6 +125,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		5884E8B427E2507F00933731 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5884E8B527E2509100933731 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		58A226F6278DE8E40018F582 = {
 			isa = PBXGroup;
 			children = (
@@ -143,7 +154,7 @@
 			children = (
 				58A22702278DE8E40018F582 /* AppDelegate.swift */,
 				58A22704278DE8E40018F582 /* SceneDelegate.swift */,
-				5821C8B82798042900839AED /* Data */,
+				5821C8B82798042900839AED /* Model */,
 				5821C8B92798043D00839AED /* View */,
 				5821C8BA2798045C00839AED /* ViewControllers */,
 				58A22708278DE8E40018F582 /* Main.storyboard */,
@@ -233,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58A22717278DE9160018F582 /* LoginViewController.swift in Sources */,
+				5884E8B627E2509100933731 /* Extensions.swift in Sources */,
 				582EE6C5279762A200973971 /* MoneyViewController.swift in Sources */,
 				58A22703278DE8E40018F582 /* AppDelegate.swift in Sources */,
 				586B487F27C6A66500E602BB /* CalendarView.swift in Sources */,

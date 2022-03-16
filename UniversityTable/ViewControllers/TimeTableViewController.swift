@@ -33,7 +33,7 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarV
         
         self.view.bringSubviewToFront(calendarView)
         calendarView.isHidden = true
-        calendarView.configure(model: DateFormat())
+        calendarView.configure(model: DateFormat(), currentDate: dateLabel.text ?? "")
         
         pagingScroll.delegate = self
         pagingScroll.isPagingEnabled = true
@@ -45,7 +45,7 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let numberOfPages: Int = calendar.count
+        let numberOfPages: Int = calendar.count - 1
         let heightScroll = UIScreen.main.bounds.height - (UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0) - (self.tabBarController?.tabBar.frame.height ?? 0) - 67
         let widthScroll = UIScreen.main.bounds.width
         self.pagingScroll.contentSize = CGSize(width: widthScroll * 14,
@@ -133,6 +133,7 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarV
         weekDateLabel.text = (calendar[tag]).toDate(format: "EEEE")
         calendarView.isHidden = true
         contentOffSet(index: indexOfDate(date: (calendar[tag]).toDate(format: "dd MMMM")))
+        calendarView.configure(model: DateFormat(), currentDate: (calendar[tag]).toDate(format: "dd"))
     }
     
     func contentOffSet(index: Int) {
