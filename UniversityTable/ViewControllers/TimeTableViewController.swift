@@ -79,9 +79,9 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarV
             let a = i.toDate(format: "dd MMMM")
             array.append(a)
         }
-        if array.contains(DateFormat.yesterday(day: dateLabel.text ?? "")){
-            dateLabel.text = DateFormat.yesterday(day: dateLabel.text ?? "")
-            weekDateLabel.text = DateFormat.yesterdayWeek(day: weekDateLabel.text ?? "")
+        if array.contains(DateFormat.yesterday(day: dateLabel.text ?? "", formatter: "dd MMMM")){
+            dateLabel.text = DateFormat.yesterday(day: dateLabel.text ?? "", formatter: "dd MMMM")
+            weekDateLabel.text = DateFormat.yesterday(day: weekDateLabel.text ?? "", formatter: "EEEE")
             contentOffSet(index: indexOfDate(date: dateLabel.text ?? ""))
         } else {
             dateLabel.text = dateLabel.text
@@ -97,9 +97,9 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarV
             let a = i.toDate(format: "dd MMMM")
             array.append(a)
         }
-        if array.contains(DateFormat.tomorrow(day: dateLabel.text ?? "")){
-            dateLabel.text = DateFormat.tomorrow(day: dateLabel.text ?? "")
-            weekDateLabel.text = DateFormat.tomorrow(day: dateLabel.text ?? "")
+        if array.contains(DateFormat.tomorrow(day: dateLabel.text ?? "", formatter: "dd MMMM")){
+            dateLabel.text = DateFormat.tomorrow(day: dateLabel.text ?? "", formatter: "dd MMMM")
+            weekDateLabel.text = DateFormat.tomorrow(day: dateLabel.text ?? "", formatter: "EEEE")
             contentOffSet(index: indexOfDate(date: dateLabel.text ?? ""))
         } else {
             dateLabel.text = dateLabel.text
@@ -124,6 +124,7 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarV
             if !((calendar[index]).toDate(format: "dd MMMM")).elementsEqual(currentDate) {
                 dateLabel.text = (calendar[index]).toDate(format: "dd MMMM")
                 weekDateLabel.text = (calendar[index]).toDate(format: "EEEE")
+                calendarView.configure(model: DateFormat(), currentDate: (calendar[index].toDate(format: "dd")))
             }
         }
     }

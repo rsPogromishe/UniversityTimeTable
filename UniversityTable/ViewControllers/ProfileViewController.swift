@@ -37,8 +37,9 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell {
             //#warning("if let же выше используешь, можно и здесь и его так же")
 //            data[safe: indexPath.row] так используется, почитай про subscripts
-            let item = data[safe: indexPath.row]
-            cell.configure(key: item?.key ?? "", value: item?.value ?? "")
+            if let item = data[safe: indexPath.row] {
+                cell.configure(key: item.key, value: item.value)  
+            }
             return cell
         }
         return UITableViewCell()

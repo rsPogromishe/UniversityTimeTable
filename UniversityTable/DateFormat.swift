@@ -35,9 +35,9 @@ class DateFormat {
 //        return stringDate
 //    }
     //#warning("Можно получить прошлую дату из даты")
-    static func yesterday(day: String) -> String {
+    static func yesterday(day: String, formatter: String) -> String {
         let format = DateFormatter()
-        format.dateFormat = "dd MMMM"
+        format.dateFormat = formatter
         format.locale = Locale(identifier: "ru_RU")
         //#warning("2 строчки кода в одну")
         guard let previousDate = format.date(from: day) else {
@@ -52,43 +52,14 @@ class DateFormat {
         return format.string(from: date)
     }
     
-    static func yesterdayWeek(day: String) -> String {
+    static func tomorrow(day: String, formatter: String) -> String {
         let format = DateFormatter()
-        format.dateFormat = "EEEE"
+        format.dateFormat = formatter
         format.locale = Locale(identifier: "ru_RU")
         guard let previousDateFormat = format.date(from: day) else {
             return ""
         }
         
-        let date = Calendar.current.date(byAdding: .day, value: -1, to: previousDateFormat)
-        guard let date = date else {
-            return ""
-        }
-        return format.string(from: date)
-    }
-    
-    static func tomorrow(day: String) -> String {
-        let format = DateFormatter()
-        format.dateFormat = "dd MMMM"
-        format.locale = Locale(identifier: "ru_RU")
-        guard let previousDateFormat = format.date(from: day) else {
-            return ""
-        }
-        
-        let date = Calendar.current.date(byAdding: .day, value: 1, to: previousDateFormat)
-        guard let date = date else {
-            return ""
-        }
-        return format.string(from: date)
-    }
-    
-    static func tomorrowWeek(day: String) -> String {
-        let format = DateFormatter()
-        format.dateFormat = "EEEE"
-        format.locale = Locale(identifier: "ru_RU")
-        guard let previousDateFormat = format.date(from: day) else {
-            return ""
-        }
         let date = Calendar.current.date(byAdding: .day, value: 1, to: previousDateFormat)
         guard let date = date else {
             return ""
