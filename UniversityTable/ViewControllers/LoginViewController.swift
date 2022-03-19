@@ -22,7 +22,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         loginTextField.clearButtonMode = .whileEditing
         passwordTextField.clearButtonMode = .whileEditing
-        //#warning("Когда у тебя будет в приложении куча мест, где нужно будет показать лоадер, тебе придётся в каждом месте на XIB или Storyboard добавлять такую вью с лоадером и скрывать её, получится очень много не нужной работы, используй ООП. Создай одну вью оотдельным классом(кодом, ксибом) и инициализируй/показывай её где угодно, только не забывай очищать её с экрана и из памяти, когда она больше не требуется")
+        #warning("Когда у тебя будет в приложении куча мест, где нужно будет показать лоадер, тебе придётся в каждом месте на XIB или Storyboard добавлять такую вью с лоадером и скрывать её, получится очень много не нужной работы, используй ООП. Создай одну вью оотдельным классом(кодом, ксибом) и инициализируй/показывай её где угодно, только не забывай очищать её с экрана и из памяти, когда она больше не требуется")
+        #warning("Описал подобную же ошибку в чаке")
         loadingView.isHidden = true
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -44,9 +45,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        //#warning("Че та не работает")
+        #warning("Че та не работает")
+        #warning("При вводе пустых полей пускает дальше в приложение, при вводе логина 123 и пароля 123 тоже пускает")
         if ((loginTextField.text?.elementsEqual("login")) != nil) && ((passwordTextField.text?.elementsEqual("123")) != nil) {
-            //#warning("Используй [weak self], иначе этот код может упасть, когда ссылка на контроллер пропадёт. https://habr.com/ru/post/251325/")
             UIView.animate(withDuration: 30.0, animations: { [weak self] in
                 guard let self = self else { return }
                 self.loadingView.isHidden = false

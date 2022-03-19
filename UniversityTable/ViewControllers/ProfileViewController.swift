@@ -35,8 +35,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell {
-            //#warning("if let же выше используешь, можно и здесь и его так же")
-//            data[safe: indexPath.row] так используется, почитай про subscripts
             if let item = data[safe: indexPath.row] {
                 cell.configure(key: item.key, value: item.value)  
             }
@@ -46,6 +44,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
+#warning("Ну ёмаё, расширение, не связанное с контроллером не должно находиться внутри файла контроллера, создай новый файл")
 extension Collection {
     subscript (safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil

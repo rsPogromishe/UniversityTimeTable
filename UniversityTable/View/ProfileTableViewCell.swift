@@ -14,8 +14,6 @@ class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var mainTitle: UILabel!
     
-    //#warning("Не используемые методы можно удалить, зря место занимают")
-    //#warning("Selection в данной задаче у ячейки не нужен")
     func configure(key: String, value: String) {
         subTitle.text = key
         mainTitle.text = value

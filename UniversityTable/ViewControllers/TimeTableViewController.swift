@@ -7,6 +7,7 @@
 
 import UIKit
 
+#warning("На iPhone SE 2 не работают кнопки след/пред раписание")
 class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarViewDelegate {
     
     lazy var dayToday = Date()

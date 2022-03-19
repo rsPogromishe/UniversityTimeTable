@@ -20,12 +20,13 @@ class TimeTableView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//#warning("Так собирать данные из массива опасно. Посмотри это https://stackoverflow.com/questions/25329186/safe-bounds-checked-array-lookup-in-swift-through-optional-bindings и проверяй, что данные точно есть")
+        #warning("ЗДесь ты берёшь элемент массива с optional")
         let lesson = dataLessons[safe: indexPath.row]
+        #warning("Проверяешь здесь его тип, когда самого элемента может и не быть")
         if lesson?.type == .lesson {
             if let cell = tableView.dequeueReusableCell(withIdentifier: LessonTableViewCell.identifier, for: indexPath) as? LessonTableViewCell {
+                #warning("И здесь ты его берёшь безопасно, но так, что элемент точно есть")
                 if let lesson = dataLessons[indexPath.row] as? Lesson {
-                    //#warning("Когда ячеек станет много и у них у всех будет по 10-20 полей, каждый придётся здесь описывать и увеличивать размер и так, вероятно, большого контроллера. Описывай метод конфигурации ячейки в классе ячейки")
                     cell.configure(data: lesson)
                 }
                 return cell

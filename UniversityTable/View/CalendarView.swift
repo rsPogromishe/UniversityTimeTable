@@ -42,6 +42,7 @@ class CalendarView: UIView {
         contentView.frame = bounds
     }
     
+    #warning("В итоге model нигде не используется")
     func configure(model: DateFormat, currentDate: String) {
         for (index, item) in firstWeekButton.enumerated() {
             item.setTitle((Date().getWeekDates().thisWeek[index]).toDate(format: "dd"), for: .normal)

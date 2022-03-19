@@ -14,7 +14,6 @@ class BreakTableViewCell: UITableViewCell {
     @IBOutlet weak var breakStartLabel: UILabel!
     @IBOutlet weak var nameBreakLabel: UILabel!
     
-    //#warning("Не используемые методы можно удалить, зря место занимают")
     func configure(data: Break) {
         breakStartLabel.text = data.timeStart
         nameBreakLabel.text = data.nameLesson

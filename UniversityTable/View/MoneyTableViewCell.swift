@@ -19,9 +19,6 @@ class MoneyTableViewCell: UITableViewCell {
     
     var selectedRow = false
     
-    //#warning("Не используемые методы можно удалить, зря место занимают")
-    
-    //#warning("IBAction убрать и передаваемый параметр тоже не нужен")
     func vectorButtonTapped() {
         if selectedRow {
             vectorLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
