@@ -7,7 +7,7 @@
 
 import UIKit
 
-#warning("На iPhone SE 2 не работают кнопки след/пред раписание")
+//#warning("На iPhone SE 2 не работают кнопки след/пред раписание")
 class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarViewDelegate {
     
     lazy var dayToday = Date()
@@ -34,7 +34,7 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarV
         
         self.view.bringSubviewToFront(calendarView)
         calendarView.isHidden = true
-        calendarView.configure(model: DateFormat(), currentDate: dateLabel.text ?? "")
+        calendarView.configure(currentDate: dateLabel.text ?? "")
         
         pagingScroll.delegate = self
         pagingScroll.isPagingEnabled = true
@@ -125,7 +125,7 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarV
             if !((calendar[index]).toDate(format: "dd MMMM")).elementsEqual(currentDate) {
                 dateLabel.text = (calendar[index]).toDate(format: "dd MMMM")
                 weekDateLabel.text = (calendar[index]).toDate(format: "EEEE")
-                calendarView.configure(model: DateFormat(), currentDate: (calendar[index].toDate(format: "dd")))
+                calendarView.configure(currentDate: (calendar[index].toDate(format: "dd")))
             }
         }
     }
@@ -135,7 +135,7 @@ class TimeTableViewController: UIViewController, UIScrollViewDelegate, CalendarV
         weekDateLabel.text = (calendar[tag]).toDate(format: "EEEE")
         calendarView.isHidden = true
         contentOffSet(index: indexOfDate(date: (calendar[tag]).toDate(format: "dd MMMM")))
-        calendarView.configure(model: DateFormat(), currentDate: (calendar[tag]).toDate(format: "dd"))
+        calendarView.configure(currentDate: (calendar[tag]).toDate(format: "dd"))
     }
     
     func contentOffSet(index: Int) {

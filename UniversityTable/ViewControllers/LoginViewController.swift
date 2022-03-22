@@ -9,6 +9,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    var load = LoadingView()
+    
     @IBOutlet weak var backgroundGradientView: UIView!
     
     @IBOutlet weak var loginButton: UIButton!
@@ -16,20 +18,21 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var loadingView: LoadingView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginTextField.clearButtonMode = .whileEditing
         passwordTextField.clearButtonMode = .whileEditing
-        #warning("Когда у тебя будет в приложении куча мест, где нужно будет показать лоадер, тебе придётся в каждом месте на XIB или Storyboard добавлять такую вью с лоадером и скрывать её, получится очень много не нужной работы, используй ООП. Создай одну вью оотдельным классом(кодом, ксибом) и инициализируй/показывай её где угодно, только не забывай очищать её с экрана и из памяти, когда она больше не требуется")
-        #warning("Описал подобную же ошибку в чаке")
-        loadingView.isHidden = true
+        //#warning("Когда у тебя будет в приложении куча мест, где нужно будет показать лоадер, тебе придётся в каждом месте на XIB или Storyboard добавлять такую вью с лоадером и скрывать её, получится очень много не нужной работы, используй ООП. Создай одну вью оотдельным классом(кодом, ксибом) и инициализируй/показывай её где угодно, только не забывай очищать её с экрана и из памяти, когда она больше не требуется")
+        //#warning("Описал подобную же ошибку в чаке")
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         gradientSetup()
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
+        
+        self.load.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        self.view.addSubview(load)
+        self.load.isHidden = true
     }
     
     func gradientSetup() {
@@ -45,17 +48,18 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        #warning("Че та не работает")
-        #warning("При вводе пустых полей пускает дальше в приложение, при вводе логина 123 и пароля 123 тоже пускает")
-        if ((loginTextField.text?.elementsEqual("login")) != nil) && ((passwordTextField.text?.elementsEqual("123")) != nil) {
+        //#warning("Че та не работает")
+        //#warning("При вводе пустых полей пускает дальше в приложение, при вводе логина 123 и пароля 123 тоже пускает")
+        if ((loginTextField.text?.elementsEqual("login")) == true) && ((passwordTextField.text?.elementsEqual("123")) == true)  {
             UIView.animate(withDuration: 30.0, animations: { [weak self] in
                 guard let self = self else { return }
-                self.loadingView.isHidden = false
-                self.loadingView.configure()
+                self.load.isHidden = false
+                self.load.configure()
                 }, completion: { finished in
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) { [weak self] in
-                        self?.loadingView.loadingIndicator.stopAnimating()
-                        self?.performSegue(withIdentifier: "login", sender: self)
+                        guard let self = self else { return }
+                        self.load.loadingIndicator.stopAnimating()
+                        self.performSegue(withIdentifier: "login", sender: self)
                     }
                 })
             

@@ -11,16 +11,19 @@ enum TypeLesson {
     case lesson
     case breakpoint
 }
+
 enum LessonTypeView {
     case lection
     case laboratory
     case practicum
 }
+
 protocol LessonProtocol {
     var timeStart: String { get set }
     var nameLesson: String { get set }
     var type: TypeLesson { get set }
 }
+
 struct Lesson: LessonProtocol {
     var type: TypeLesson
     var timeStart: String
@@ -31,6 +34,7 @@ struct Lesson: LessonProtocol {
     var cabinetNumber: String
     var lessonType: LessonTypeView
 }
+
 struct Break: LessonProtocol {
     var type: TypeLesson
     var timeStart: String

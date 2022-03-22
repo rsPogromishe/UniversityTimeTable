@@ -44,9 +44,5 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
-#warning("Ну ёмаё, расширение, не связанное с контроллером не должно находиться внутри файла контроллера, создай новый файл")
-extension Collection {
-    subscript (safe index: Index) -> Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
-}
+//#warning("Ну ёмаё, расширение, не связанное с контроллером не должно находиться внутри файла контроллера, создай новый файл")
+
