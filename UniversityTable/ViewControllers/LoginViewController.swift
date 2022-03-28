@@ -9,8 +9,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    var load = LoadingView()
-    
     @IBOutlet weak var backgroundGradientView: UIView!
     
     @IBOutlet weak var loginButton: UIButton!
@@ -29,10 +27,6 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
         gradientSetup()
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
-        
-        self.load.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        self.view.addSubview(load)
-        self.load.isHidden = true
     }
     
     func gradientSetup() {
@@ -51,14 +45,13 @@ class LoginViewController: UIViewController {
         //#warning("Че та не работает")
         //#warning("При вводе пустых полей пускает дальше в приложение, при вводе логина 123 и пароля 123 тоже пускает")
         if ((loginTextField.text?.elementsEqual("login")) == true) && ((passwordTextField.text?.elementsEqual("123")) == true)  {
-            UIView.animate(withDuration: 30.0, animations: { [weak self] in
+            UIView.animate(withDuration: 3.0, animations: { [weak self] in
                 guard let self = self else { return }
-                self.load.isHidden = false
-                self.load.configure()
+                LoadingView.startAnimating(inView: LoadingView(), mainView: self.view)
                 }, completion: { finished in
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) { [weak self] in
                         guard let self = self else { return }
-                        self.load.loadingIndicator.stopAnimating()
+                        LoadingView.stopAnimating(inView: LoadingView(), mainView: self.view)
                         self.performSegue(withIdentifier: "login", sender: self)
                     }
                 })

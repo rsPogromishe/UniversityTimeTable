@@ -34,8 +34,16 @@ class LoadingView: UIView {
         contentView.frame = bounds
     }
     
-    func configure() {
-        loadingIndicator.isHidden = false
-        loadingIndicator.startAnimating()
+    class func startAnimating(inView: LoadingView, mainView: UIView) {
+        inView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        mainView.addSubview(inView)
+        inView.isHidden = false
+        inView.loadingIndicator.startAnimating()
+    }
+    
+    class func stopAnimating(inView: LoadingView, mainView: UIView) {
+        inView.isHidden = true
+        inView.loadingIndicator.stopAnimating()
+        mainView.willRemoveSubview(inView)
     }
 }
