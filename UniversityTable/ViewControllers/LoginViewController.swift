@@ -47,11 +47,11 @@ class LoginViewController: UIViewController {
         if ((loginTextField.text?.elementsEqual("login")) == true) && ((passwordTextField.text?.elementsEqual("123")) == true)  {
             UIView.animate(withDuration: 3.0, animations: { [weak self] in
                 guard let self = self else { return }
-                LoadingView.startAnimating(inView: LoadingView(), mainView: self.view)
+                LoadingView.startAnimating(mainView: self.view)
                 }, completion: { finished in
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) { [weak self] in
                         guard let self = self else { return }
-                        LoadingView.stopAnimating(inView: LoadingView(), mainView: self.view)
+                        LoadingView.stopAnimating()
                         self.performSegue(withIdentifier: "login", sender: self)
                     }
                 })

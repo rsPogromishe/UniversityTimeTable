@@ -10,6 +10,8 @@ import UIKit
 
 class LoadingView: UIView {
     
+    static var viewOfLoading: UIView?
+    
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
@@ -34,16 +36,16 @@ class LoadingView: UIView {
         contentView.frame = bounds
     }
     
-    class func startAnimating(inView: LoadingView, mainView: UIView) {
+    class func startAnimating(mainView: UIView) {
+        let inView = LoadingView()
         inView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         mainView.addSubview(inView)
         inView.isHidden = false
         inView.loadingIndicator.startAnimating()
+        self.viewOfLoading = inView
     }
     
-    class func stopAnimating(inView: LoadingView, mainView: UIView) {
-        inView.isHidden = true
-        inView.loadingIndicator.stopAnimating()
-        mainView.willRemoveSubview(inView)
+    class func stopAnimating() {
+        viewOfLoading?.removeFromSuperview()
     }
 }
