@@ -20,12 +20,9 @@ class TimeTableView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//#warning("ЗДесь ты берёшь элемент массива с optional")
         if let lesson = dataLessons[safe: indexPath.row] {
-//#warning("Проверяешь здесь его тип, когда самого элемента может и не быть")
             if lesson.type == .lesson {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: LessonTableViewCell.identifier, for: indexPath) as? LessonTableViewCell {
-//#warning("И здесь ты его берёшь безопасно, но так, что элемент точно есть")
                     cell.configure(data: lesson as! Lesson)
                     return cell
                 }

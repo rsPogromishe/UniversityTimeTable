@@ -10,6 +10,7 @@ import UIKit
 class MoneyViewController: UIViewController {
     
     @IBOutlet weak var moneyTableView: UITableView!
+
     let years = ["2022", "2021"]
     let dataMoney = DataMoneyDate.shared.month
     var selectedRows: [IndexPath] = []
@@ -27,7 +28,6 @@ class MoneyViewController: UIViewController {
 }
 
 extension MoneyViewController: UITableViewDataSource, UITableViewDelegate {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return years.count
     }

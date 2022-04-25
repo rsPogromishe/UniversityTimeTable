@@ -20,9 +20,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         loginTextField.clearButtonMode = .whileEditing
         passwordTextField.clearButtonMode = .whileEditing
-        //#warning("Когда у тебя будет в приложении куча мест, где нужно будет показать лоадер, тебе придётся в каждом месте на XIB или Storyboard добавлять такую вью с лоадером и скрывать её, получится очень много не нужной работы, используй ООП. Создай одну вью оотдельным классом(кодом, ксибом) и инициализируй/показывай её где угодно, только не забывай очищать её с экрана и из памяти, когда она больше не требуется")
-        //#warning("Описал подобную же ошибку в чаке")
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         gradientSetup()
@@ -42,8 +41,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        //#warning("Че та не работает")
-        //#warning("При вводе пустых полей пускает дальше в приложение, при вводе логина 123 и пароля 123 тоже пускает")
         if ((loginTextField.text?.elementsEqual("login")) == true) && ((passwordTextField.text?.elementsEqual("123")) == true)  {
             UIView.animate(withDuration: 3.0, animations: { [weak self] in
                 guard let self = self else { return }

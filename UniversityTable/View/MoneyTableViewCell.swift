@@ -26,6 +26,7 @@ class MoneyTableViewCell: UITableViewCell {
             vectorLabel.transform = CGAffineTransform(rotationAngle: CGFloat.zero)
         }
     }
+    
     func configure(month: String) {
         monthLabel.text = month
     }

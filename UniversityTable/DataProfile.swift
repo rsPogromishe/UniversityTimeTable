@@ -21,7 +21,6 @@ class ProfileData {
         DataProfile.init(key: "Номер зачетной книжки", value: "2014-99.99.99-99"),
         DataProfile.init(key: "Тема ВКР", value: "Разработка мобильной версии портала ИИАС")
     ]
-
 }
 
 struct DataProfile {

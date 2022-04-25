@@ -5,36 +5,16 @@
 //  Created by Снытин Ростислав on 11.01.2022.
 //
 
-import Foundation
 import UIKit
 
 class DateFormat {
-//    static func formatDate(date: Date, format: String = "dd MMMM") -> String {
-//        let format = DateFormatter()
-//        format.dateFormat = format
-//        format.locale = Locale(identifier: "ru_RU")
-//        return format.string(from: date)
-//    }
-    //#warning("2 метода делают практически одно и тоже. Получают строку из даты, меняется только одна переменная, можно 2 метода совместить в один, как выше")
     static func dateToday(day: Date, formatter: String) -> String {
         let format = DateFormatter()
         format.dateFormat = formatter
         format.locale = Locale(identifier: "ru_RU")
         return format.string(from: day)
     }
-//    static func yesterday(atDate date: Date) -> String? {
-//        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: date)
-//        guard let yesterday = yesterday else {
-//            return nil
-//        }
-//
-//        let format = DateFormatter()
-//        format.dateFormat = "dd MMMM"
-//        format.locale = Locale(identifier: "ru_RU")
-//        let stringDate = format.string(from: yesterday)
-//        return stringDate
-//    }
-    //#warning("Можно получить прошлую дату из даты")
+    
     static func yesterday(day: String, formatter: String) -> String {
         let format = DateFormatter()
         format.dateFormat = formatter

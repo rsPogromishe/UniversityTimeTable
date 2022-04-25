@@ -47,5 +47,6 @@ class LoadingView: UIView {
     
     class func stopAnimating() {
         viewOfLoading?.removeFromSuperview()
+        viewOfLoading = nil
     }
 }

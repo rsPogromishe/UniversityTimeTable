@@ -44,5 +44,3 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
-//#warning("Ну ёмаё, расширение, не связанное с контроллером не должно находиться внутри файла контроллера, создай новый файл")
-
